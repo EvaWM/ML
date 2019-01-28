@@ -1,16 +1,15 @@
 #' ---
 #' title: Gradient Descent
 #' author: Evalyne Muiruri
-#' date: January 2019
+#' #date: January 2019
 #' #' #output: pdf_document
-#' #output: html_document
-#' output: 
-#'  md_document:
-#'   variant: markdown_github
+#' output: html_document
+#' #output: 
+#'  #md_document:
+#'   #variant: markdown_github
 #' ---
 
-
-# Take a small dataset
+#' Take a small dataset
 x <- c(1,2,3,4)
 y <- c(24, 29, 34, 50)
 plot(x, y)
@@ -38,7 +37,6 @@ gradDesc <- function(x, y, alpha, max.iter, convthresh){
   # initialise parameters
   intercept <- runif(1,0,1)
   slope <- runif(1,0,1)
-  plot(x,y, xlim=c(0,5), ylim=c(0,55));abline(intercept, slope, col="red")
   yhat <- intercept + slope*x
   error <- sum((yhat-y)^2)/n
   
@@ -54,13 +52,11 @@ gradDesc <- function(x, y, alpha, max.iter, convthresh){
      delta <- error - new_error
      
      if(delta < convthresh) {
-       abline(intercept, slope, col="red")
        return(cbind(intercept=intercept, slope=slope))
      }
      iterations=iterations+1
      if(identical(iterations,max.iter)){
         warning("Maximum Iterations reached")
-        plot(x,y, xlim=c(0,5));abline(intercept, slope, col="red")
         return(cbind(intercept=intercept, slope=slope))
        }
    }
