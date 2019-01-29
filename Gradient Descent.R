@@ -2,13 +2,14 @@
 #' title: Gradient Descent
 #' author: Evalyne Muiruri
 #' #date: January 2019
-#' #' #output: pdf_document
-#' output: html_document
-#' #output: 
-#'  #md_document:
-#'   #variant: markdown_github
+#' #output: pdf_document
+#' #output: html_document
+#' output: 
+#'  md_document:
+#'   variant: markdown_github
 #' ---
 
+#' #Gradient Descent
 #' Take a small dataset
 x <- c(1,2,3,4)
 y <- c(24, 29, 34, 50)
