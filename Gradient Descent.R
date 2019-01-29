@@ -20,7 +20,7 @@ abline(pars1, col="red")
 #' By linear algebra, the slope of the line is computed to be h(x) = 13.5+8.3x
 #' We could try to do this with gradient descent
 #' First we need to set up our cost function - mean squared error in this case
-#' MSE = Σ(y – y_preds)² / n
+#' where MSE = Σ(predicted - y)² / n
 
 mse <- function(x, y, thetas){
   yhat <- thetas + thetas*x
@@ -58,7 +58,7 @@ gradDesc <- function(x, y, alpha, max.iter, convthresh){
      }
      iterations=iterations+1
      if(identical(iterations,max.iter)){
-        warning("Maximum Iterations reached")
+        print("Maximum Iterations reached")
         return(cbind(intercept=intercept, slope=slope))
        }
    }
@@ -69,4 +69,14 @@ gradDesc(x=x, y=y, alpha=0.01, max.iter=50000, convthresh=0.01)
 #' And we can see that we get the same outcome as we would have with linear algebra
 coefficients(lm(y~x))
 
+#' Likewise we can try it on a larger dataset: 
+data(mtcars)
+str(mtcars)
+with(mtcars, plot(wt, log(mpg)))
+(pars2 <- coefficients(lm(log(mpg) ~ wt, data=mtcars)))
+abline(pars2, col="red")
 
+with(mtcars, gradDesc(x=wt, y=log(mpg), alpha=0.01, max.iter=50000, convthresh=0.01))
+
+
+#' To expand this further, we could look to use matrix algebra instead to permit multiple predictor variables (or attributes) to be used.
