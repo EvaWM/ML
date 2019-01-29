@@ -13,7 +13,7 @@ abline(pars1, col="red")
 
 ![](Gradient_Descent_files/figure-markdown_github/unnamed-chunk-1-1.png)
 
-By linear algebra, the slope of the line is computed to be h(x) = 13.5+8.3x We could try to do this with gradient descent First we need to set up our cost function - mean squared error in this case
+By linear algebra, the slope of the line is computed to be h(x) = 13.5+8.3x We could try to do this with gradient descent First we need to set up our cost function - mean squared error in this case MSE = Σ(y – y\_preds)² / n
 
 ``` r
 mse <- function(x, y, thetas){

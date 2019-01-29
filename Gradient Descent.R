@@ -20,6 +20,7 @@ abline(pars1, col="red")
 #' By linear algebra, the slope of the line is computed to be h(x) = 13.5+8.3x
 #' We could try to do this with gradient descent
 #' First we need to set up our cost function - mean squared error in this case
+#' MSE = Σ(y – y_preds)² / n
 
 mse <- function(x, y, thetas){
   yhat <- thetas + thetas*x
